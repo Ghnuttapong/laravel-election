@@ -33,9 +33,9 @@
                                     <div class="text-center">
 
                                         @if($user->picture == null)
-                                        <img src="{{ asset('profiles/default.png') }}" class="rounded-4" height="50" width="50" alt="">
+                                        <img src="{{ asset('profiles/default.png') }}" class="rounded-circle" height="50" width="50" alt="">
                                         @else
-                                        <img src="{{ asset('profiles/'.$user->picture) }}" class="rounded-4" height="50" width="50" alt="">
+                                        <img src="{{ asset('profiles/'.$user->picture) }}" class="rounded-circle" height="50" width="50" alt="">
                                         @endif
                                     </div>
                                     <div class="text-muted">Policy</div>
@@ -61,9 +61,9 @@
                                     <div class="text-center">
 
                                         @if($voter->user->picture == null)
-                                        <img src="{{ asset('profiles/default.png') }}" class="rounded-4" height="50" width="50" alt="">
+                                        <img src="{{ asset('profiles/default.png') }}" class="rounded-circle" height="50" width="50" alt="">
                                         @else
-                                        <img src="{{ asset('profiles/'.$voter->user->picture) }}" class="rounded-4" height="50" width="50" alt="">
+                                        <img src="{{ asset('profiles/'.$voter->user->picture) }}" class="rounded-circle" height="50" width="50" alt="">
                                         @endif
                                     </div>
                                     <div class="text-muted">Policy</div>

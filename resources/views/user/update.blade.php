@@ -18,9 +18,9 @@
                 <div class="card-body">
                     <div class="my-4 p-2 text-center">
                         @if($user->picture == null)
-                        <img src="{{ asset('profiles/default.png') }}" class="rounded-4" height="100" width="100" alt="">
+                        <img src="{{ asset('profiles/default.png') }}" class="rounded-circle" height="100" width="100" alt="">
                         @else
-                        <img src="{{ asset('profiles/'.$user->picture) }}" class="rounded-4" height="100" width="100" alt="">
+                        <img src="{{ asset('profiles/'.$user->picture) }}" class="rounded-circle" height="100" width="100" alt="">
                         @endif
                     </div>
                     <form method="POST" enctype="multipart/form-data" action="{{ route('users.update', Auth::user()->id ) }}">
