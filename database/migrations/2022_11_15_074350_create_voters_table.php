@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('voters', function (Blueprint $table) {
             $table->id();
-            $table->text('number')->unique();
+            $table->integer('number')->default(1);
             $table->integer('user_id');
             $table->integer('score')->default(0);
             $table->text('policy'); 

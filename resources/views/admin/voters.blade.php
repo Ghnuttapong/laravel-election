@@ -22,9 +22,10 @@
                     @else
                         <?php $i = 1?>
                         @foreach($voters as $voter)
-                        <div class="d-flex justify-content-between">
+                        <div class="d-flex justify-content-between mb-2">
                             <h5><?= $i++ ?>.</h5> 
                             <p>{{ $voter->user->name }}</p>
+                            <p>{{ $voter->user->email }}</p>
                             <a href="{{ url('admin/voters/'.$voter->id) }}" class="btn btn-primary">Approve</a>
                         </div>
                         @endforeach

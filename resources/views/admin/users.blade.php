@@ -50,13 +50,17 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {{ $i = 1 }}
+                            <?php $i = 1 ?>
                             @if(isset($role))
                             @foreach($users as $user)
                             <tr>
                                 <td>{{ $i++ }}</td>
                                 <td>
-                                    <img src="#" class="rounded-4" height="50" width="50" alt="">
+                                    @if($user->picture == null)
+                                    <img src="{{ asset('profiles/default.png') }}" class="rounded-4" height="50" width="50" alt="">
+                                    @else
+                                    <img src="{{ asset('profiles/'.$user->picture) }}" class="rounded-4" height="50" width="50" alt="">
+                                    @endif
                                 </td>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
@@ -86,7 +90,11 @@
                             <tr>
                                 <td>{{ $i++ }}</td>
                                 <td>
-                                    <img src="#" class="rounded-4" height="50" width="50" alt="">
+                                    @if($user->picture == null)
+                                    <img src="{{ asset('profiles/default.png') }}" class="rounded-4" height="50" width="50" alt="">
+                                    @else
+                                    <img src="{{ asset('profiles/'.$user->picture) }}" class="rounded-4" height="50" width="50" alt="">
+                                    @endif
                                 </td>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>

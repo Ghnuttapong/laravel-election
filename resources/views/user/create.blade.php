@@ -11,20 +11,6 @@
                         @method('POST')
                         @csrf
                         <div class="row mb-3">
-                            <label for="number" class="col-md-4 col-form-label text-md-end">Number</label>
-
-                            <div class="col-md-6">
-                                <input id="number" type="text" class="form-control @error('number') is-invalid @enderror" name="number" value="{{ old('number') }}"  autocomplete="number" autofocus>
-
-                                @error('number')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
                             <label for="policy" class="col-md-4 col-form-label text-md-end">Policy</label>
 
                             <div class="col-md-6">

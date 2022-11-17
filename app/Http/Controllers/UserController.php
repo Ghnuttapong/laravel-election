@@ -71,14 +71,20 @@ class UserController extends Controller
     {
         //
         $validated = $request->validate([
-            'number' => 'required | numeric',
             'policy' => 'required | min: 10',
         ]);
+
 
         $voter = new Voter;
         $voter->user_id = Auth::user()->id;
         $voter->policy = $request->policy;
-        $voter->number = $request->number;
+        // set number
+        $new_number = Voter::latest()->paginate(1);
+        if($new_number[0] != null) {
+            $number = $new_number[0]->number + 1;
+            $voter->number = $number;
+        }   
+        // end set
         $voter->save();
         return $this->index();
     }
@@ -102,14 +108,25 @@ class UserController extends Controller
         //
         $validated = $request->validate([
             'name' => 'required',
-            'picture' => 'image',
+            'picture' => $request->picture? 'mimes:jpeg,png,gif|max:2048': '',
             'password' => $request->password? 'min:6':'',
         ]);
+
+        /* file upload */
+        if($request->picture) {
+            $fileName = time().'.'.$request->picture->extension();  
+            $request->picture->move(public_path('profiles'), $fileName);
+            $validated['picture'] = $fileName;
+        }else{
+            unset($validated['picture']);
+        }
+   
         if($request->password) {
             $validated['password'] = Hash::make($request->password);
         }else{
             unset($validated['password']);
         }
+
         DB::table('users')
         ->where('id', $id)
         ->update($validated);

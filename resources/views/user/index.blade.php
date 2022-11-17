@@ -46,6 +46,13 @@
                                 <div class="card">
                                     <div class="card-body">
                                         คุณ <strong> {{ $val->user->name }} </strong>
+                                        <div class="text-center mt-2">
+                                            @if($val->user->picture == null)
+                                            <img src="{{ asset('profiles/default.png') }}" class="rounded-4" height="50" width="50" alt="">
+                                            @else
+                                            <img src="{{ asset('profiles/'.$val->user->picture) }}" class="rounded-4" height="50" width="50" alt="">
+                                            @endif
+                                        </div>
                                         <p>Policy</p>
                                         <textarea class="form-control" rows="5" style="resize: none;" disabled>{{ $val->policy }}</textarea>
                                         <input type="submit" class="mt-2 float-end btn btn-success" value="Vote">
@@ -87,6 +94,13 @@
                                 <div class="card-body">
                                     <h5> คะแนนโหวต <span class="text-success">{{ $user->voter->score }}</span> คะแนน </h5>
                                     <h5 class="text-primary my-2">Code# {{ $user->voter->number }}</h5>
+                                    <div class="text-center">
+                                        @if($user->picture == null)
+                                        <img src="{{ asset('profiles/default.png') }}" class="rounded-4" height="50" width="50" alt="">
+                                        @else
+                                        <img src="{{ asset('profiles/'.$user->picture) }}" class="rounded-4" height="50" width="50" alt="">
+                                        @endif
+                                    </div>
                                     <div class="text-muted">Policy</div>
                                     <textarea name="" disabled id="" cols="30" class="form-control" rows="5">{{ $user->voter->policy }}</textarea>
                                 </div>
@@ -107,6 +121,13 @@
                                 <div class="card-body">
                                     <h5> คะแนนโหวต <span class="text-success">{{ $voter->score }}</span> คะแนน </h5>
                                     <h5 class="text-primary my-2">Code# {{ $voter->number }}</h5>
+                                    <div class="text-center">
+                                        @if($voter->user->picture == null)
+                                        <img src="{{ asset('profiles/default.png') }}" class="rounded-4" height="50" width="50" alt="">
+                                        @else
+                                        <img src="{{ asset('profiles/'.$voter->user->picture) }}" class="rounded-4" height="50" width="50" alt="">
+                                        @endif
+                                    </div>
                                     <div class="text-muted">Policy</div>
                                     <textarea name="" disabled id="" cols="30" class="form-control" rows="5">{{ $voter->policy }}</textarea>
                                 </div>
