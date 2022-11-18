@@ -123,11 +123,15 @@ class AdminController extends Controller
         //
         $validated = $request->validate([
             'name' => 'required',
-            'password' => 'required|min:6',
+            'password' => $request->password? 'min:6' : '',
             'role' => 'required',
         ]);
 
-        $validated['password'] = Hash::make($request->password);
+        if($request->password) {
+            $validated['password'] = Hash::make($request->password);
+        }else{
+            unset($validated['password']); 
+        }
         DB::table('users')
             ->where('id', $id)
             ->update($validated);

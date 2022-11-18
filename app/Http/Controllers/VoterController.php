@@ -70,7 +70,7 @@ class VoterController extends Controller
         $voter->policy = $request->policy;
         $voter->number = $request->number;
         $voter->save();
-        return back()->with('msg', 'Apply to elector successfully');
+        return back()->with('msg', 'Apply to candidate successfully');
     }
 
     /**

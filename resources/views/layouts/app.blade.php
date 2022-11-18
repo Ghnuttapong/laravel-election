@@ -87,7 +87,7 @@
                                             </button>
                                         @else
                                             <a class="dropdown-item" href="{{ route('users.create') }}">
-                                                ลงสมัคร Elector
+                                                ลงสมัคร Candidate
                                             </a>
                                         @endif
                                     @endif
