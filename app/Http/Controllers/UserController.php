@@ -130,7 +130,7 @@ class UserController extends Controller
         DB::table('users')
         ->where('id', $id)
         ->update($validated);
-        return redirect()->back()->with('msg', 'Updated successfully.');
+        return redirect()->back()->with('msg', 'อัพเดทโปรไฟล์สำเร็จ');
     }
 
     public function destroy($id)

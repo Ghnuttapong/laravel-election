@@ -8,7 +8,6 @@ use App\Models\Voter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use SebastianBergmann\Complexity\ComplexityCalculatingVisitor;
 
 class AdminController extends Controller
 {
@@ -52,6 +51,9 @@ class AdminController extends Controller
         $users = User::all();
         $count_user = count($users);
 
+        $voter = Voter::all();
+        $count_voter = count($voter);
+
         $validated = $request->validate([
             'from' => 'required',
             'to' => 'required',
@@ -59,7 +61,7 @@ class AdminController extends Controller
         $from = $request->from;
         $to = $request->to;
         $voters = Voter::whereBetween('created_at', [$from, $to])->paginate(6);
-        return view('admin.index', compact('voters', 'count_voted', 'count_user'));
+        return view('admin.index', compact('voters', 'count_voted', 'count_user', 'count_voter'));
     }
 
     public function voter_approve($id)
@@ -87,8 +89,11 @@ class AdminController extends Controller
         $users = User::all();
         $count_user = count($users);
 
+        $voters = Voter::where('disabled', 0)->paginate(10);
+        $count_voter = count($voters);
+
         $voters = Voter::paginate(5);
-        return view('admin.index', compact('voters', 'count_voted', 'count_user'));
+        return view('admin.index', compact('voters', 'count_voted', 'count_user', 'count_voter'));
     }
 
     public function create()

@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt&display=swap');
+
+:root {
+    --main-color: #00337C;
+}
+
+body {
+    background-color: #ECECEC !important;
+    font-family: -apple-system, 'Prompt', sans-serif !important;
+}
+
+/* component base costom */
+.btn.btn-base1 {
+    background-color: var(--main-color) !important;
+    border: none !important;
+    color: #fff;
+}
+
+.btn.btn-base1:hover {
+    color: #ccc;
+}
+
+.text-base1 {
+    color: #00337C !important;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.bg-base1 {
+    background-color: var(--main-color) !important;
+    color: #fff !important;
+
+}
+
+input:checked {
+    background-color: var(--main-color) !important;
+}
+
+textarea {
+    resize: none !important;
+}
+
+img {
+    object-fit: cover !important;
+}
+
+/* reuseable */
+.d-flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* loader */
+.loader {
+    position: absolute;
+    z-index: 100;
+    background-color: #ECECEC;
+    flex-direction: column;
+    gap:1rem;
+}
+
+/* sidebar */
+.sidebar-container {
+    height: 100vh;
+    width: 60px;
+    background-color: #fff;
+    position: fixed;
+    top: 0;
+    left: 1rem;
+    z-index: 100;
+    padding: 2rem 5px;
+}
+
+.sidebar {
+    flex-direction: column;
+}
+
+.sidebar-item.active i{
+    background-color: var(--main-color);
+    color: #fff;
+    padding: 2px 10px;
+    border-radius: 10px;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3);
+}
+
+.sidebar-item {
+    position: relative;
+}
+
+.sidebar-item:hover:not(.active) i {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding: 2px 10px;
+}
+
+.sidebar a > i {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--main-color);
+}
+
+/* medium screen */
+.sidebar-md-container {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+}
+
+.sidebar-md-container > i {
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.offcanvas-menu li{
+    list-style: none;
+    margin: 20px 0;
+
+}
+
+.offcanvas-menu li > a{
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: #ccc;
+}
+
+/* description note admin page */
+.note-container {
+    display: flex;
+    width: 200px;
+    height: 20px;
+    gap:10px;
+    padding-left: 30px;
+}
+
+.note-unapprove {
+    position: relative;
+}
+.note-unapprove::before {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    left: -15px;
+    top: 7px;
+    background-color: #e62323;
+}
+
+.note-approve {
+    position: relative;
+    margin-left: 20px;
+}
+.note-approve::before {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    left: -15px;
+    top: 7px;
+    background-color: #1467f7;
+}
+
+/* card candidate show */
+.card-candidate-img {
+    width: 300px;
+}
