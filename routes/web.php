@@ -33,6 +33,8 @@ Route::get('/voters/score', [VoterController::class, 'score']);
 Route::post('/voters/search', [VoterController::class, 'search_voter']);
 Route::resource('/voters', VoterController::class);
 // admin
+Route::get('/admin/recover/member', [AdminController::class, 'recover_member']);
+Route::post('/admin/recover/member', [AdminController::class, 'recover']);
 Route::post('/admin/search/member', [AdminController::class, 'search_member']);
 Route::post('/admin/search', [AdminController::class, 'search_voter']);
 Route::post('/admin/search/date', [AdminController::class, 'search_date']);

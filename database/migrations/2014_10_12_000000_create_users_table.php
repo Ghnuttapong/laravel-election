@@ -23,7 +23,7 @@ return new class extends Migration
             $table->text('picture')->nullable()->default(null);
             $table->rememberToken();
             $table->timestamps();
-            $table->softDeletes()->nullable()->default(null);
+            $table->softDeletes();
         });
     }
 

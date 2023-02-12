@@ -17,6 +17,17 @@ class AdminController extends Controller
         $this->middleware('isAdmin');
     }
 
+    public function recover(Request $request) {
+        $restore = User::withTrashed()->where('id', $request->id)->restore();
+        return back()->with('msg', 'Restored successful.');
+    }
+
+    public function recover_member() {
+        $count_users = User::onlyTrashed()->count(); 
+        $users = User::onlyTrashed()->paginate(6);
+        return view('admin.recover', compact('count_users', 'users'));
+    }
+
     public function voters()
     {
         $voters = Voter::where('disabled', 1)->paginate(10);
@@ -146,10 +157,7 @@ class AdminController extends Controller
     public function destroy($id)
     {
         //
-        $date = date('Y-m-d H:i:s');
-        $user = User::find($id);
-        $user->deleted_at = $date;
-        $user->save();
+        $user = User::find($id)->delete();
         return back()->with('msg', 'deleted successfull');
     }
 }
